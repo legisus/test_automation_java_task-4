@@ -12,13 +12,29 @@ public class Task1 {
      * IllegalArgumentException
      */
     public static boolean isSorted(int[] array, SortOrder order) {
-        boolean isAscending = false;
 
-        if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1])){
-            isAscending = true;
-        }else if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] < array[i + 1])){
-            isAscending = false;
+        if (order == SortOrder.ASC){
+            boolean isAscending = false;
+            if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1])){
+                isAscending = true;
+                order = SortOrder.ASC;
+            }else if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] < array[i + 1])){
+                isAscending = false;
+                order = SortOrder.DESC;
+            }
+            return isAscending;
         }
-        return isAscending;
+        if (order == SortOrder.DESC){
+            boolean isDesc = false;
+            if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] < array[i + 1])){
+                isDesc = true;
+                order = SortOrder.ASC;
+            }else if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1])){
+                isDesc = false;
+                order = SortOrder.DESC;
+            }
+            return isDesc;
+        }
+        return false;
     }
 }
