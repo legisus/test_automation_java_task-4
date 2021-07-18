@@ -1,5 +1,7 @@
 package com.epam.test.automation.java.practice4;
 
+import java.util.stream.IntStream;
+
 public class Task1 {
 
     /**
@@ -10,15 +12,6 @@ public class Task1 {
      * IllegalArgumentException
      */
     public static boolean isSorted(int[] array, SortOrder order) {
-        int i;
-        for (i = 0; i < array.length - 1; i++) ;
-        {
-            if (array[i] < array[i + 1]) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
+        return IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1]);
     }
 }
