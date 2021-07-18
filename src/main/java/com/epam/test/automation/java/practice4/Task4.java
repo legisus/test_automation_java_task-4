@@ -21,7 +21,7 @@ public class Task4 {
 
             for (int i = 1; alim < (int) (nums[i - 1] * t); i++) {
                 c++;
-                nums[i] = (int) (nums[i - 1] * t);
+                nums[i] = nums[i - 1] * t;
                 result = result + nums[i];
             }
             return result;
