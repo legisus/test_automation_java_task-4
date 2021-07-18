@@ -12,7 +12,13 @@ public class Task1 {
      * IllegalArgumentException
      */
     public static boolean isSorted(int[] array, SortOrder order) {
-        //return IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1]);
-        return IntStream.range(0, array.length - 1).allMatch(i -> array[i] <= array[i + 1]);
+        boolean isAscending;
+
+        if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1])){
+            isAscending = true;
+        }else {
+            isAscending = false;
+        }
+        return isAscending;
     }
 }
