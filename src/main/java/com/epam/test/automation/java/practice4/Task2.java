@@ -1,8 +1,4 @@
 package com.epam.test.automation.java.practice4;
-
-import java.lang.reflect.Array;
-import java.util.stream.IntStream;
-
 public class Task2 {
 
     /**
