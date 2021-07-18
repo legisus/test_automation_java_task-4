@@ -12,6 +12,9 @@ public class Task1 {
      * IllegalArgumentException
      */
     public static boolean isSorted(int[] array, SortOrder order) {
+        if (!IntStream.range(0, array.length - 1).noneMatch(i -> array[i] == 0 && array[i+1] == 0)){
+            throw new IllegalArgumentException();
+        }
 
         if (order == SortOrder.ASC){
             boolean isAscending = false;
