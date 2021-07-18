@@ -14,6 +14,11 @@ public class Task2 {
                 array[i] = i+array[i];
             }
         }
+        if (Task1.isSorted(array, SortOrder.DESC)) {
+            for (int i = 0; i < array.length; i++) {
+                array[i] = i+array[i];
+            }
+        }
         return array;
     }
 }
