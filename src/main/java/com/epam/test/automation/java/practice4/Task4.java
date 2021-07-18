@@ -10,6 +10,24 @@ public class Task4 {
      * IllegalArgumentException
      */
     public static double sumGeometricElements(int a1, double t, int alim) {
-        throw new UnsupportedOperationException();
+        int c = 30;
+        double[] nums = new double[c];
+        double[] last = new double[c];
+        nums[0] = a1;
+        double result = a1;
+        int aClone = a1;
+
+            for (int i = 1; i < nums.length; i++) {
+                c++;
+                if (alim < aClone) {
+                nums[i] = (int) (nums[i - 1] * t);
+                if (alim < (int) (nums[i - 1] * t)){
+                    last[i] = (int) (nums[i - 1] * t);
+                }
+            }
+                result = result + last[i];
+                aClone = (int) nums[i];
+        }
+        return result;
     }
 }
