@@ -1,5 +1,8 @@
 package com.epam.test.automation.java.practice4;
 
+import java.lang.reflect.Array;
+import java.util.stream.IntStream;
+
 public class Task2 {
 
     /**
@@ -10,6 +13,11 @@ public class Task2 {
      * IllegalArgumentException
      */
     public static int[] transform(int[] array, SortOrder order) {
-        throw new UnsupportedOperationException();
+        if (Task1.isSorted(array, SortOrder.ASC)) {
+            for (int i = 0; i < array.length; i++) {
+                array[i] = i+array[i];
+            }
+        }
+        return array;
     }
 }

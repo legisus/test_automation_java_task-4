@@ -1,5 +1,6 @@
 package com.epam.test.automation.java.practice4;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Task1 {
@@ -12,7 +13,7 @@ public class Task1 {
      * IllegalArgumentException
      */
     public static boolean isSorted(int[] array, SortOrder order) {
-        if (array.length < 1 && array.toString() == null){
+        if (array.length < 1 && Arrays.toString(array) == null){
             throw new IllegalArgumentException();
         }
 
@@ -20,24 +21,41 @@ public class Task1 {
             boolean isAscending = false;
             if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1])){
                 isAscending = true;
-                order = SortOrder.ASC;
             }else if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] < array[i + 1])){
                 isAscending = false;
-                order = SortOrder.DESC;
             }
             return isAscending;
-        }
-        if (order == SortOrder.DESC){
+        }if (order == SortOrder.DESC){
             boolean isDesc = false;
             if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] < array[i + 1])){
                 isDesc = true;
-                order = SortOrder.ASC;
             }else if (IntStream.range(0, array.length - 1).noneMatch(i -> array[i] > array[i + 1])){
                 isDesc = false;
-                order = SortOrder.DESC;
             }
             return isDesc;
         }
         return false;
     }
+
+/*
+TeacherSuite > TeacherTests > com.epam.test.automation.java.practice4.TestsTeacherTask1 > testArrayIsSortedWithNullArgs FAILED
+
+    org.testng.TestException:
+
+    Expected exception of type class java.lang.IllegalArgumentException but got java.lang.NullPointerException
+
+
+
+        Caused by:
+
+        java.lang.NullPointerException
+ */
+
+    /*
+    TeacherSuite > TeacherTests > com.epam.test.automation.java.practice4.TestsTeacherTask1 > arrayIsSortedWithIllegalArgumentException[0]([I@75b9adfd) FAILED
+
+    org.testng.TestException:
+
+    Method TestsTeacherTask1.arrayIsSortedWithIllegalArgumentException([I)[pri:0, instance:com.epam.test.automation.java.practice4.TestsTeacherTask1@3d554406] should have thrown an exception of type class java.lang.IllegalArgumentException
+     */
 }
