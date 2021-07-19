@@ -14,15 +14,15 @@ public class Task4 {
         if (alim < 0) {
             throw new IllegalArgumentException();
         } else {
-            int c = 30;
+            var c = 30;
             double[] nums = new double[c];
             nums[0] = a1;
-            double result = a1;
+            int result = a1;
 
             for (int i = 1; alim < (int) (nums[i - 1] * t); i++) {
                 c++;
                 nums[i] = nums[i - 1] * t;
-                result = result + nums[i];
+                result = (int) (result + nums[i]);
             }
             return result;
         }
